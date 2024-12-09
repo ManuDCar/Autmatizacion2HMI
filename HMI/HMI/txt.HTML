@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatización de Vagones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            position: relative;
+            margin: 20px auto;
+            width: 80%;
+            height: 300px;
+        }
+        .track {
+            width: 100%;
+            height: 20px;
+            background-color: #ccc;
+            position: absolute;
+        }
+        .track:nth-child(1) { top: 50px; }
+        .track:nth-child(2) { top: 100px; }
+        .track:nth-child(3) { top: 150px; }
+        .track:nth-child(4) { top: 200px; }
+
+        .vagon {
+            width: 100px;
+            height: 40px;
+            background-color: lightblue;
+            border: 2px solid black;
+            position: absolute;
+            transition: left 0.1s linear; /* Movimiento suave */
+        }
+        #vagon1 { top: 30px; left: 0; }
+        #vagon2 { top: 80px; left: 0; }
+        #vagon3 { top: 130px; left: 0; }
+        #vagon4 { top: 180px; left: 0; }
+
+        .marker {
+            position: absolute;
+            font-size: 14px;
+            color: #444;
+        }
+        .start-marker {
+            left: 0;
+            top: 230px;
+        }
+        .end-marker {
+            right: 0;
+            top: 230px;
+        }
+        .palanca-container {
+            margin-top: 30px;
+            position: relative;
+        }
+        .palanca {
+            width: 40px;
+            height: 50px;
+            background-color: #ccc;
+            border: 2px solid black;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 0px;
+            cursor: pointer;
+        }
+        .palanca:active {
+            background-color: #4caf50;
+        }
+        .palanca-label {
+            position: absolute;
+            bottom: 10px;
+            left: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+        }
+        .sensor-btn {
+            margin: 5px;
+            padding: 10px 15px;
+            font-size: 14px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            background-color: #f4f4f4;
+            cursor: pointer;
+        }
+        .sensor-btn.active {
+            background-color: #4caf50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Automatización de Vagones</h1>
+    <p>
+<text-align: justify>
+        La automatización de sistemas de transporte ha emergido como una de las innovaciones más significativas en la industria del transporte moderno, transformando la manera en que se gestionan y operan los vehículos. En particular, la automatización de vagones, ya sean de trenes, tranvías o sistemas de metro, representa un avance crucial hacia la mejora de la eficiencia, la seguridad y la sostenibilidad en el transporte público. La automatización no solo optimiza el funcionamiento de los vagones, sino que también contribuye a una experiencia de viaje más fluida y segura para los pasajeros.
+    </p>
+    <div class="container">
+        <!-- Carriles -->
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+
+        <!-- Marcadores -->
+        <div class="marker start-marker">Inicio</div>
+        <div class="marker end-marker">Final</div>
+
+        <!-- Vagones -->
+        <div id="vagon1" class="vagon"></div>
+        <div id="vagon2" class="vagon"></div>
+        <div id="vagon3" class="vagon"></div>
+        <div id="vagon4" class="vagon"></div>
+    </div>
+
+    <!-- Contenedor de palanca y botón -->
+    <div class="palanca-container">
+        <div class="palanca" id="palanca">
+            <span class="palanca-label">M</span>
+        </div>
+        <button id="startBtn">Iniciar Movimiento</button>
+    </div>
+
+    <!-- Botones para sensores -->
+    <div class="buttons">
+        <button id="v1-start" class="sensor-btn">Vagón 1 - Inicio</button>
+        <button id="v1-end" class="sensor-btn">Vagón 1 - Final</button>
+        <button id="v2-start" class="sensor-btn">Vagón 2 - Inicio</button>
+        <button id="v2-end" class="sensor-btn">Vagón 2 - Final</button>
+        <button id="v3-start" class="sensor-btn">Vagón 3 - Inicio</button>
+        <button id="v3-end" class="sensor-btn">Vagón 3 - Final</button>
+        <button id="v4-start" class="sensor-btn">Vagón 4 - Inicio</button>
+        <button id="v4-end" class="sensor-btn">Vagón 4 - Final</button>
+    </div>
+
+    <script src="txt.js"></script>
+</body>
+</html>
